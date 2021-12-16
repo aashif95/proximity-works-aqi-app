@@ -17,18 +17,12 @@ class App extends React.Component  {
 
     this.ws.onmessage = evt => {
       // listen to data sent from the websocket server
-      const message = JSON.parse(evt.data)
-      const getStoreData = storeManager(message, this.props.aqiData)
-      console.log(getStoreData)
+      const incomingData = JSON.parse(evt.data)
+      const getStoreData = storeManager(incomingData, this.props.aqiData)
       this.props.updateAqiData(getStoreData)
     }
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.aqiData !== prevProps.aqiData) {
-      console.log('getStoreData', this.props.aqiData)
-    }
-  }
-  
+
   render() {
     return (
       <Router>

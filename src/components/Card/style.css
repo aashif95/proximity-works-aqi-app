@@ -1,0 +1,47 @@
+.card_body {
+  border-radius: 10px;
+  box-shadow: var(--dropshadow);
+  -webkit-box-shadow: var(--dropshadow);
+  -moz-box-shadow: var(--dropshadow);
+}
+
+.city_name_text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--card_text_color);
+}
+
+.aqi_index_text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--card_text_color);
+}
+
+.relative_time_text {
+  font-size: 1rem;
+  color: var(--light_text_color);
+}
+
+.bg_very_good {
+  background-color: var(--bg_very_good);
+}
+
+.bg_good {
+  background-color: var(--bg_good);
+}
+
+.bg_moderate {
+  background-color: var(--bg_moderate);
+}
+
+.bg_poor {
+  background-color: var(--bg_poor);
+}
+
+.bg_very_poor {
+  background-color: var(--bg_very_poor);
+}
+
+.bg_severe {
+  background-color: var(--bg_severe);
+}

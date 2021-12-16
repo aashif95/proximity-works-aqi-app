@@ -1,3 +1,15 @@
+:root {
+  --dropshadow:  -2px 1px 5px 0px rgba(0,0,0,0.75);
+  --card_text_color: black;
+  --light_text_color: rgb(104, 104, 104);
+  --bg_very_good: #8ab57b;
+  --bg_good: #92eb73;
+  --bg_moderate: #e7eb73;
+  --bg_poor: #ebbd73;
+  --bg_very_poor: #ff8373;
+  --bg_severe: #d14343;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +23,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
