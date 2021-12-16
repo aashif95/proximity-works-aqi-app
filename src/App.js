@@ -20,6 +20,12 @@ class App extends React.Component  {
       const message = JSON.parse(evt.data)
       const getStoreData = storeManager(message, this.props.aqiData)
       console.log(getStoreData)
+      this.props.updateAqiData(getStoreData)
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.aqiData !== prevProps.aqiData) {
+      console.log('getStoreData', this.props.aqiData)
     }
   }
   
@@ -33,7 +39,7 @@ class App extends React.Component  {
   }
 }
 
-const mapStateToProps = ({aqiReducer}) => {
+const mapStateToProps = ({ aqiReducer }) => {
   const { aqiData } = aqiReducer
   return { aqiData }
  }
