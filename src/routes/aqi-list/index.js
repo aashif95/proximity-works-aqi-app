@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
 import Card  from "../../components/Card";
+import AqiComparisonChart  from "../../components/AqiComparisonChart";
 import { cloneDeep } from 'lodash';
-import { cityManager } from "../../helpers/storeLimitController";
+import { cityManager, comparisonChartDataFormater } from "../../helpers/storeLimitController";
+import { Link } from "react-router-dom";
 class AQIList extends React.Component  {
   render() {
     const { aqiData } = cloneDeep(this.props)
@@ -10,7 +12,12 @@ class AQIList extends React.Component  {
       <div className={"w-100"}>
         <div className="container">
           <div className="w-100 row m-0">
-            {cityManager(aqiData).map((data, index) => <div className="col-lg-3 col-md-4 col-sm-12 mt-3"><Card key={index} data={data}/></div>)}
+            <div className="col-lg-7 col-md-6 col-sm-12 row m-0">
+              {cityManager(aqiData).map((data, index) => <div className="col-lg-6 col-md-12 col-sm-12 mt-3"><Link to={`/city?city=${data.city}`}><Card key={index} data={data}/></Link></div>)}
+            </div>
+            <div className="col-lg-5 col-md-6 col-sm-12">
+              <AqiComparisonChart data={comparisonChartDataFormater(aqiData)}/>
+            </div>
           </div>
         </div>
         

@@ -3,7 +3,6 @@ import Chart from "react-google-charts";
 
 export default function AqiChart(props) {
   const  { data, city} = props;
-  console.log(data)
   return(
     <div className="w-100">
       <Chart

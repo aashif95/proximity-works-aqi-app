@@ -1,6 +1,8 @@
 import moment from "moment";
 import { dataLengthLimit } from "../app.config";
 import { orderBy } from "lodash";
+
+const colorCodes = ['#80a66a', '#10f2d9', '#141513', '#52906e', '#9f26bf', '#a87b5d', '#5c1733', '#950cf7', '#8293e0', '#5c67ce', '#a19e4c']
 export default function storeManager(incomingData, oldData) {
   incomingData.map(data => data['updatedAt'] = new Date());
   oldData.unshift(...incomingData);
@@ -47,7 +49,42 @@ export function calculateSevearity (data) {
 }
 
 export function getRelativeTime(date) {
-  return moment(new Date(date)).fromNow();
+  return timeDifference(new Date(), date);
+}
+
+function timeDifference(current, previous) {
+
+  var msPerMinute = 60 * 1000;
+  var msPerHour = msPerMinute * 60;
+  var msPerDay = msPerHour * 24;
+  var msPerMonth = msPerDay * 30;
+  var msPerYear = msPerDay * 365;
+
+  var elapsed = current - previous;
+
+  if (elapsed < msPerMinute) {
+       return Math.round(elapsed/1000) + ' seconds ago';   
+  }
+
+  else if (elapsed < msPerHour) {
+       return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+  }
+
+  else if (elapsed < msPerDay ) {
+       return Math.round(elapsed/msPerHour ) + ' hours ago';   
+  }
+
+  else if (elapsed < msPerMonth) {
+      return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+  }
+
+  else if (elapsed < msPerYear) {
+      return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';   
+  }
+
+  else {
+      return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+  }
 }
 
 export function filterCities(allCities, cityName) {
@@ -59,3 +96,7 @@ export function filterCities(allCities, cityName) {
   }
   return filteredCities;
 }
+
+export function comparisonChartDataFormater (allCities) {
+  return cityManager(allCities).map((data, i) => [data.city, data.aqi, colorCodes[i], null]);
+} 

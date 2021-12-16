@@ -4,6 +4,7 @@
   -webkit-box-shadow: var(--dropshadow);
   -moz-box-shadow: var(--dropshadow);
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .city_name_text {
@@ -19,8 +20,8 @@
 }
 
 .relative_time_text {
-  font-size: 1rem;
-  color: var(--light_text_color);
+  font-size: .8rem;
+  color: var(--card_text_color);
 }
 
 .bg_very_good {
