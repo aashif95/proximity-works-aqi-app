@@ -1,1 +1,1 @@
-export const LOAD_AQI_DATA = 'LOAD_AQI_DATA';
+export const UPDATE_AQI_DATA = 'UPDATE_AQI_DATA';

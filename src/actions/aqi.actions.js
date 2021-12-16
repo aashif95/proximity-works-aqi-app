@@ -1,7 +1,8 @@
-import { LOAD_AQI_DATA } from "./types";
-export const simpleAction = () => dispatch => {
+import { UPDATE_AQI_DATA } from "./types";
+
+export const updateAqiData = (data) => dispatch => {
   dispatch({
-   type: LOAD_AQI_DATA,
-   payload: 'result_of_simple_action'
+   type: UPDATE_AQI_DATA,
+   payload: data
   })
  }

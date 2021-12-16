@@ -1,10 +1,13 @@
 import React from "react";
 import './App.css';
+import { connect } from 'react-redux';
 import AQIList from "./routes/aqi-list";
 import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { updateAqiData } from './actions/aqi.actions';
+import storeManager from "./helpers/storeLimitController";
 class App extends React.Component  {
   
-  ws = new WebSocket('ws://city-ws.herokuapp.com/');
+  ws = new WebSocket('ws://city-ws.herokuapp.com');
 
   componentDidMount() {
     this.ws.onopen = () => {
@@ -15,11 +18,10 @@ class App extends React.Component  {
     this.ws.onmessage = evt => {
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data)
-      this.setState({dataFromServer: message})
-      console.log(message)
+      const getStoreData = storeManager(message, this.props.aqiData)
+      console.log(getStoreData)
     }
   }
-
   
   render() {
     return (
@@ -30,4 +32,10 @@ class App extends React.Component  {
       </Router>);
   }
 }
-export default App;
+
+const mapStateToProps = ({aqiReducer}) => {
+  const { aqiData } = aqiReducer
+  return { aqiData }
+ }
+
+export default connect(mapStateToProps, {updateAqiData})(App);
