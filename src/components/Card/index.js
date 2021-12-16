@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-import { timeAgo, numberFormater, calculateSevearity } from "../../helpers/storeLimitController";
+import { getRelativeTime,  numberFormater, calculateSevearity } from "../../helpers/storeLimitController";
+
 const Card = (props) => {
   const { data } = props;
   const themeColor = calculateSevearity(numberFormater(data.aqi))
@@ -15,7 +16,7 @@ const Card = (props) => {
         </div>
         <div className={'col-6 text-right'}>
           <span className="relative_time_text">Updated</span><br/>
-          <span className="relative_time_text">{timeAgo(new Date(data.updatedAt))}</span>
+          <span className="relative_time_text">{getRelativeTime(data.updatedAt)}</span>
         </div>
       </div>
     </div>

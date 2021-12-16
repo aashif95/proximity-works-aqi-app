@@ -3,6 +3,7 @@
   box-shadow: var(--dropshadow);
   -webkit-box-shadow: var(--dropshadow);
   -moz-box-shadow: var(--dropshadow);
+  cursor: pointer;
 }
 
 .city_name_text {

@@ -1,1 +1,1 @@
-export const dataLengthLimit = 50;
+export const dataLengthLimit = 100;

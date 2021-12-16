@@ -2,6 +2,7 @@ import React from "react";
 import './App.css';
 import { connect } from 'react-redux';
 import AQIList from "./routes/aqi-list";
+import City from "./routes/city";
 import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { updateAqiData } from './actions/aqi.actions';
 import storeManager from "./helpers/storeLimitController";
@@ -28,6 +29,7 @@ class App extends React.Component  {
       <Router>
         <Routes>
           <Route path="/list" element={<AQIList />} />
+          <Route path="/city" element={<City />} />
         </Routes>    
       </Router>);
   }
