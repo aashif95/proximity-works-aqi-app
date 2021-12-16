@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import AQIList from "./routes/aqi-list";
+import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
+class App extends React.Component  {
+  
+  ws = new WebSocket('ws://city-ws.herokuapp.com/');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    this.ws.onopen = () => {
+      // on connecting, do nothing but log it to the console
+      console.log('connected')
+    }
+
+    this.ws.onmessage = evt => {
+      // listen to data sent from the websocket server
+      const message = JSON.parse(evt.data)
+      this.setState({dataFromServer: message})
+      console.log(message)
+    }
+  }
+
+  
+  render() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/list" element={<AQIList />} />
+        </Routes>    
+      </Router>);
+  }
 }
-
 export default App;

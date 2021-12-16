@@ -1,0 +1,1 @@
+export const LOAD_AQI_DATA = 'LOAD_AQI_DATA';
