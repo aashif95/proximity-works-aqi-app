@@ -94,7 +94,7 @@ export function filterCities(allCities, cityName) {
       filteredCities.push([moment(new Date(city.updatedAt)).format('HH:mm:ss'), +(numberFormater(city.aqi))])
     }
   }
-  return filteredCities;
+  return filteredCities.reverse();
 }
 
 export function comparisonChartDataFormater (allCities) {
