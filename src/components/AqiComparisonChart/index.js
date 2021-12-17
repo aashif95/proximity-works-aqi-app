@@ -7,6 +7,7 @@ export default function AqiComparisonChart(props) {
     <div className="w-100">
       <Chart
         width={'100%'}
+        height={'500px'}
         chartType="BarChart"
         loader={<div>Loading Chart</div>}
         data={[
@@ -24,7 +25,7 @@ export default function AqiComparisonChart(props) {
           ...data
         ]}
         options={{
-          title: 'Air Quality Index comparison chart',
+          title: 'Air Quality Index of cities',
           bar: { groupWidth: '95%' },
           legend: { position: 'none' },
         }}

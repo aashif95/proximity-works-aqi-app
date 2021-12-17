@@ -8,6 +8,7 @@
   --bg_poor: #ebbd73;
   --bg_very_poor: #ff8373;
   --bg_severe: #d14343;
+  --dark-blue: rgb(11, 11, 75);
 }
 
 body {
@@ -19,6 +20,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/images/bg_images/bg.jpg);
   background-size: cover;
+}
+
+.app_header_text {
+  color: var(--dark-blue);
 }
 
 @supports (background-image: -webkit-image-set(url(./assets/images/bg_images/bg.webp) 1x)) {
