@@ -28,6 +28,7 @@ class App extends React.Component  {
     return (
       <Router>
         <Routes>
+          <Route exact path="/" element={<AQIList />} />
           <Route path="/list" element={<AQIList />} />
           <Route path="/city" element={<City />} />
         </Routes>    

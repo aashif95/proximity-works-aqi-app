@@ -16,7 +16,7 @@ const Card = (props) => {
         </div>
         <div className={'col-6 text-right'}>
           <span className="relative_time_text">Updated</span><br/>
-          <span className="relative_time_text">{!data.noForamt ? data.updatedAt : getRelativeTime(data.updatedAt)}</span>
+          <span className="relative_time_text">{data.noForamt ? data.updatedAt : getRelativeTime(data.updatedAt)}</span>
         </div>
       </div>
     </div>

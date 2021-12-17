@@ -15,7 +15,7 @@ class City extends React.Component  {
         <div className="container">
           <div className="w-100 row m-0">
             <div className="col-lg-5 col-md-6 col-sm-12">
-              <Card data={{aqi: currentData[1], city: query.get('city'), updatedAt: currentData[0], noForamt: false}}/>
+              <Card data={{aqi: currentData[1], city: query.get('city'), updatedAt: currentData[0], noFormat: true}}/>
             </div>
             <div className="col-lg-7 col-md-6 col-sm-12 row m-0">
               <AqiChart data={data} city={query.get('city')}/>
