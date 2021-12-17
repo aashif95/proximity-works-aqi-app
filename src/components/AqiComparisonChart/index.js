@@ -24,9 +24,7 @@ export default function AqiComparisonChart(props) {
           ...data
         ]}
         options={{
-          title: 'Density of Precious Metals, in g/cm^3',
-          width: 600,
-          height: 400,
+          title: 'Air Quality Index comparison chart',
           bar: { groupWidth: '95%' },
           legend: { position: 'none' },
         }}

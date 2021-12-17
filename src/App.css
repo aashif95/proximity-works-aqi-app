@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+.chart_conatiner {
+  border-radius: 10px;
+  box-shadow: var(--dropshadow);
+  -webkit-box-shadow: var(--dropshadow);
+  -moz-box-shadow: var(--dropshadow);
+  padding: 10px;
+  background-color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

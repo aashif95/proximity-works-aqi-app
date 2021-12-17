@@ -7,7 +7,7 @@ export default function AqiChart(props) {
     <div className="w-100">
       <Chart
         width={'100%'}
-        height={'500'}
+        height={'800'}
         chartType="Line"
         loader={<div>Loading Chart</div>}
         data={[
@@ -20,10 +20,8 @@ export default function AqiChart(props) {
         options={{
           chart: {
             title:
-              `Live Air quality index - ${city}`,
+              `Live Air Quality Index - ${city}`,
           },
-          width: 900,
-          height: 500,
           series: {
             // Gives each series an axis name that matches the Y-axis below.
             0: { axis: 'Time' },

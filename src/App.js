@@ -28,18 +28,17 @@ class App extends React.Component  {
   render() {
     return (
       <div className="w-100">
-        <div className="w-100">
-          <Header />
-        </div>
-        <div className="w-100 pt-2">
           <Router>
-            <Routes>
-              <Route exact path="/" element={<AQIList />} />
-              <Route path="/list" element={<AQIList />} />
-              <Route path="/city" element={<City />} />
-            </Routes>    
+            <div className="w-100">
+              <Header />
+            </div>
+            <div className="w-100 pt-2">
+              <Routes>
+                <Route exact path="/"  element={<AQIList />} />
+                <Route path="/city" element={<City />} />
+              </Routes>    
+            </div>
           </Router>
-        </div>
       </div>);
   }
 }

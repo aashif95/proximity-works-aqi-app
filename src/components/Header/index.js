@@ -1,9 +1,9 @@
 import React from "react";
-
-export default function Header(props) {
+import { Link } from "react-router-dom";
+export default function Header() {
   return(
     <nav class="navbar navbar-light bg-light px-3">
-      <a class="navbar-brand" href="#">Air Quality Index</a>
+      <Link to="/"><h3>Air Quality Index</h3></Link>
     </nav>
   )
 }

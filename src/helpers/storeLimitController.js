@@ -32,19 +32,19 @@ export function numberFormater (number) {
 export function calculateSevearity (data) {
   switch (true) {
     case data <= 50:
-      return 'bg_very_good'
+      return {style: 'bg_very_good', status: 'Very Good'}
     case data > 50 && data <= 100:
-      return 'bg_good'
+      return {style: 'bg_good', status: 'Good'}
     case data > 100 && data <= 200:
-      return 'bg_moderate'
+      return {style: 'bg_moderate', status: 'Moderate'}
     case data > 200 && data <= 300:
-      return 'bg_poor'
+      return {style: 'bg_poor', status: 'Poor'}
     case data > 300 && data <= 400:
-      return 'bg_very_poor'
+      return {style: 'bg_very_poor', status: 'Very Poor'}
     case data > 400 && data <= 500:
-      return 'bg_severe'
+      return {style: 'bg_severe', status: 'Severe'}
     default:
-      return "bg_very_good";
+      return {style: "bg_very_good", status: 'Very Good'};
   }
 }
 
