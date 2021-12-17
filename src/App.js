@@ -6,6 +6,7 @@ import City from "./routes/city";
 import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { updateAqiData } from './actions/aqi.actions';
 import storeManager from "./helpers/storeLimitController";
+import Header from "./components/Header";
 class App extends React.Component  {
   
   ws = new WebSocket('ws://city-ws.herokuapp.com');
@@ -26,13 +27,20 @@ class App extends React.Component  {
 
   render() {
     return (
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<AQIList />} />
-          <Route path="/list" element={<AQIList />} />
-          <Route path="/city" element={<City />} />
-        </Routes>    
-      </Router>);
+      <div className="w-100">
+        <div className="w-100">
+          <Header />
+        </div>
+        <div className="w-100 pt-2">
+          <Router>
+            <Routes>
+              <Route exact path="/" element={<AQIList />} />
+              <Route path="/list" element={<AQIList />} />
+              <Route path="/city" element={<City />} />
+            </Routes>    
+          </Router>
+        </div>
+      </div>);
   }
 }
 

@@ -11,7 +11,7 @@ class City extends React.Component  {
     const data = filterCities(aqiData, query.get('city'))
     const currentData = data[data.length -1];
     return(
-      <div className={"w-100"}>
+      <div className={"w-100 pt-3"}>
         <div className="container">
           <div className="w-100 row m-0">
             <div className="col-lg-5 col-md-6 col-sm-12">
