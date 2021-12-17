@@ -5,6 +5,7 @@ import AqiChart from "../../components/AqiChart";
 import { filterCities } from "../../helpers/storeLimitController";
 import Card  from "../../components/Card";
 import Breadcrumb from "../../components/Breadcrumb";
+import NoDataFound from "../../components/NoDataFound";
 class City extends React.Component  {
   render() {
     const query = new URLSearchParams(window.location.search)
@@ -23,7 +24,7 @@ class City extends React.Component  {
             </div>
             <div className="col-lg-7 col-md-6 col-sm-12 row m-0">
               <div className="chart_conatiner w-100 h-100">
-                <AqiChart data={data} city={query.get('city')}/>
+                {data?.length > 0 ? <AqiChart data={data} city={query.get('city')}/> : <NoDataFound />}
               </div>
             </div>
           </div>

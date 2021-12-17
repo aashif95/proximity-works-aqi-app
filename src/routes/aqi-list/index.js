@@ -5,6 +5,7 @@ import AqiComparisonChart  from "../../components/AqiComparisonChart";
 import { cloneDeep } from 'lodash';
 import { cityManager, comparisonChartDataFormater } from "../../helpers/storeLimitController";
 import { Link } from "react-router-dom";
+import NoDataFound from "../../components/NoDataFound";
 class AQIList extends React.Component  {
   render() {
     const { aqiData } = cloneDeep(this.props)
@@ -17,7 +18,7 @@ class AQIList extends React.Component  {
             </div>
             <div className="col-lg-5 col-md-6 col-sm-12">
               <div className="chart_conatiner">
-                <AqiComparisonChart data={comparisonChartDataFormater(aqiData)}/>
+                {aqiData.length > 0 ? <AqiComparisonChart data={comparisonChartDataFormater(aqiData)}/> : <NoDataFound />}
               </div>
             </div>
           </div>

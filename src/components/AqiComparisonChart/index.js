@@ -6,7 +6,7 @@ export default function AqiComparisonChart(props) {
   return(
     <div className="w-100">
       <Chart
-       width={'100%'}
+        width={'100%'}
         chartType="BarChart"
         loader={<div>Loading Chart</div>}
         data={[
