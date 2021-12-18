@@ -13,7 +13,7 @@ export default function AqiComparisonChart(props) {
         data={[
           [
             'Element',
-            'Density',
+            'AQI',
             { role: 'style' },
             {
               sourceColumn: 0,
