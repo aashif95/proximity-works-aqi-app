@@ -1,6 +1,6 @@
 import moment from "moment";
 import { dataLengthLimit } from "../app.config";
-import { orderBy } from "lodash";
+import { orderBy, uniqBy } from "lodash";
 
 const colorCodes = ['#80a66a', '#10f2d9', '#141513', '#52906e', '#9f26bf', '#a87b5d', '#5c1733', '#950cf7', '#8293e0', '#5c67ce', '#a19e4c']
 export default function storeManager(incomingData, oldData) {
@@ -14,11 +14,8 @@ export default function storeManager(incomingData, oldData) {
 
 
 export function cityManager (data)  {
-  const map = new Map(data.map(({city, updatedAt, aqi}) => [city, { city, updatedAt, aqi }])); 
-  for (let {city, updatedAt} of data) map.get(city).updatedAt = updatedAt;
-  let result = [...map.values()];
-  result = orderBy(result,'city', 'asc')
-  return result;
+  const map = uniqBy(data, 'city');
+  return orderBy(map,'city', 'asc')
 }
 
 export function numberFormater (number) {
@@ -98,5 +95,5 @@ export function filterCities(allCities, cityName) {
 }
 
 export function comparisonChartDataFormater (allCities) {
-  return cityManager(allCities).map((data, i) => [data.city, data.aqi, colorCodes[i], null]);
+  return cityManager(allCities).map((data, i) => [data.city, data.aqi, colorCodes[i], null])
 } 
