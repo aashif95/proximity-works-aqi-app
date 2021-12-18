@@ -20,6 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/images/bg_images/bg.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .app_header_text {
